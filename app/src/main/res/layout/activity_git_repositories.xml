@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/linearLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".gitRepositories.view.GitRepositoriesViewActivity">
+
+    <include layout="@layout/main_toolbar" />
+
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/user_info_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        tools:visibility="visible">
+
+
+        <ImageView
+            android:id="@+id/imageview_git_repositories_owner_avatar"
+            android:layout_width="100dp"
+            android:layout_height="85dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:src="@drawable/ic_account" />
+
+        <TextView
+            android:id="@+id/texviewview_git_repositories_owner_login"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            tools:text="Hbeto021"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@+id/imageview_git_repositories_owner_avatar"
+            app:layout_constraintTop_toTopOf="@+id/imageview_git_repositories_owner_avatar" />
+
+
+        <ImageView
+            android:id="@+id/imageview_git_repositories_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="2dp"
+            android:src="@drawable/ic_repository"
+            app:layout_constraintEnd_toStartOf="@+id/texviewview_git_repositories_owner_respos_number"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/texviewview_git_repositories_owner_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            app:layout_constraintStart_toEndOf="@+id/imageview_git_repositories_owner_avatar"
+            app:layout_constraintTop_toBottomOf="@+id/texviewview_git_repositories_owner_login"
+            android:textColor="@color/colorPrimary"
+            android:textStyle="bold"
+            tools:text="Humberto Cesar" />
+
+        <TextView
+            android:id="@+id/texviewview_git_repositories_owner_followers"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="4dp"
+            android:textColor="@color/colorPrimary"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@+id/imageview_git_repositories_owner_avatar"
+            app:layout_constraintTop_toBottomOf="@+id/texviewview_git_repositories_owner_name"
+            tools:text="500" />
+
+        <TextView
+            android:id="@+id/texviewview_git_repositories_owner_followers_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="4dp"
+            app:layout_constraintBottom_toBottomOf="@+id/texviewview_git_repositories_owner_followers"
+            app:layout_constraintStart_toEndOf="@+id/texviewview_git_repositories_owner_followers"
+            app:layout_constraintTop_toBottomOf="@+id/texviewview_git_repositories_owner_name"
+            android:text="followers" />
+
+        <TextView
+            android:id="@+id/texviewview_git_repositories_owner_following"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            tools:text="350"
+            android:textStyle="bold"
+            android:textColor="@color/colorPrimary"
+            app:layout_constraintBottom_toBottomOf="@+id/texviewview_git_repositories_owner_followers_label"
+            app:layout_constraintStart_toEndOf="@+id/texviewview_git_repositories_owner_followers_label"
+            app:layout_constraintTop_toTopOf="@+id/texviewview_git_repositories_owner_followers_label" />
+
+        <TextView
+            android:id="@+id/texviewview_git_repositories_owner_following_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:text="following"
+            app:layout_constraintBottom_toBottomOf="@+id/texviewview_git_repositories_owner_following"
+            app:layout_constraintStart_toEndOf="@+id/texviewview_git_repositories_owner_following"
+            app:layout_constraintTop_toTopOf="@+id/texviewview_git_repositories_owner_following" />
+
+        <TextView
+            android:id="@+id/texviewview_git_repositories_owner_bio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="5dp"
+            tools:text="Um pouco sobre mim"
+            android:textColor="@color/colorPrimary"
+            app:layout_constraintStart_toEndOf="@+id/imageview_git_repositories_owner_avatar"
+            app:layout_constraintTop_toBottomOf="@+id/texviewview_git_repositories_owner_followers" />
+
+        <View
+            android:id="@+id/line_separator"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/grey"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
+        <TextView
+            android:id="@+id/texviewview_git_repositories_owner_respos_number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="18dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="2" />
+
+    </android.support.constraint.ConstraintLayout>
+
+    <android.support.design.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ProgressBar
+            android:id="@+id/progressbar_git_repositories_activity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:theme="@style/ProgressBarStyle"
+            android:visibility="gone"
+            tools:visibility="visible" />
+
+        <LinearLayout
+            android:id="@+id/layout_git_repositories_search"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/imageview_git_repositories_search"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:src="@drawable/ic_search_black_big" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@string/git_repositories_search_user"
+                android:textAlignment="center"
+                android:textSize="16sp" />
+
+        </LinearLayout>
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recyclerview_git_repositories_activity"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone" />
+
+    </android.support.design.widget.CoordinatorLayout>
+
+</LinearLayout>

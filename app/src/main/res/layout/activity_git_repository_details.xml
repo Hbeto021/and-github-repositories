@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".gitRepositoryDetails.view.GitRepositoryDetailsActivity">
+
+
+    <TextView
+        android:id="@+id/textview_git_repository_details_activity_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="6dp"
+        android:layout_marginTop="6dp"
+        tools:text="MyApplicationTeste"
+        android:textSize="16sp"
+        android:textColor="@android:color/black"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textview_git_repository_details_activity_full_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="6dp"
+        tools:text="Hbeto021/android-retrofit-sample"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textview_git_repository_details_activity_name" />
+
+    <TextView
+        android:id="@+id/textview_git_repository_details_activity_description"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="6dp"
+        android:layout_marginTop="8dp"
+        tools:text="Esse repositório é para fins de estudo e aprendizado, focado em desenvolvimento android"
+        android:textSize="15sp"
+        android:textColor="@android:color/black"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textview_git_repository_details_activity_full_name" />
+
+    <TextView
+        android:id="@+id/textview_git_repository_details_activity_clone_url_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="6dp"
+        android:layout_marginTop="5dp"
+        android:text="Link para clone:"
+        android:textSize="15dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textview_git_repository_details_activity_description" />
+
+    <TextView
+        android:id="@+id/textview_git_repository_details_activity_clone_url"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="1dp"
+        tools:text="https://github.com/Hbeto021/android-retrofit-sample.git"
+        android:textColor="@android:color/black"
+        android:textSize="15dp"
+        app:layout_constraintStart_toEndOf="@+id/textview_git_repository_details_activity_clone_url_label"
+        app:layout_constraintTop_toTopOf="@+id/textview_git_repository_details_activity_clone_url_label" />
+
+    <TextView
+        android:id="@+id/textview_git_repository_details_activity_repository_url_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="6dp"
+        android:layout_marginTop="2dp"
+        android:text="Link do repositório:"
+        android:textSize="15dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textview_git_repository_details_activity_clone_url_label" />
+
+    <TextView
+        android:id="@+id/textview_git_repository_details_activity_repository_url"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="2dp"
+        tools:text="https://github.com/Hbeto021/android-retrofit-sample"
+        android:textSize="15dp"
+        android:textColor="@android:color/black"
+        app:layout_constraintStart_toEndOf="@+id/textview_git_repository_details_activity_repository_url_label"
+        app:layout_constraintTop_toBottomOf="@+id/textview_git_repository_details_activity_clone_url_label" />
+
+    <TextView
+        android:id="@+id/textview_git_repository_details_activity_created_at_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="6dp"
+        android:layout_marginTop="8dp"
+        android:text="Criado em:"
+        android:textSize="15dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textview_git_repository_details_activity_repository_url_label" />
+
+    <TextView
+        android:id="@+id/textview_git_repository_details_activity_created_at"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="1dp"
+        tools:text="21/04/2019"
+        android:textSize="15dp"
+        android:textColor="@android:color/black"
+        app:layout_constraintStart_toEndOf="@+id/textview_git_repository_details_activity_created_at_label"
+        app:layout_constraintTop_toTopOf="@+id/textview_git_repository_details_activity_created_at_label" />
+
+    <TextView
+        android:id="@+id/textview_git_repository_details_activity_updated_at_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="6dp"
+        android:text="Atualizado em:"
+        android:textSize="15dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textview_git_repository_details_activity_created_at_label" />
+
+    <TextView
+        android:id="@+id/textview_git_repository_details_activity_updated_at"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="1dp"
+        tools:text="10/07/2019"
+        android:textSize="15dp"
+        android:textColor="@android:color/black"
+        app:layout_constraintStart_toEndOf="@+id/textview_git_repository_details_activity_updated_at_label"
+        app:layout_constraintTop_toBottomOf="@+id/textview_git_repository_details_activity_created_at_label" />
+</android.support.constraint.ConstraintLayout>

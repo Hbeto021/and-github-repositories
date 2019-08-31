@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">Repositories</string>
+    <string name="menu_toolbar_ic_searach_title">Pesquisar</string>
+    <string name="git_repositories_search_user">Procurar usuário no GitHub</string>
+
+    <string name="git_repositories_item_stars_label">Stars</string>
+
+
+    <string name="dialog_search_view_title">Pesquisar</string>
+    <string name="dialog_search_view_textinput_hint">Usuário</string>
+    <string name="dialog_search_view_textinput_text_helper">Digite um usuário git (Ex: Hbeto021)</string>
+    <string name="dialog_search_view_textview_cancel">Cancelar</string>
+    <string name="dialog_search_view_textview_search">Pesquisar</string>
+</resources>
