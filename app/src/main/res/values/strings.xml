@@ -11,4 +11,6 @@
     <string name="dialog_search_view_textinput_text_helper">Digite um usuário git (Ex: Hbeto021)</string>
     <string name="dialog_search_view_textview_cancel">Cancelar</string>
     <string name="dialog_search_view_textview_search">Pesquisar</string>
+    <string name="git_repositories_following_label">following</string>
+    <string name="git_repositories_followers_label">followers</string>
 </resources>
