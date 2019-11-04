@@ -24,25 +24,17 @@ public class GitRepositoriesPresenterImpl implements GitRepositoriesPresenter {
     @Override
     public void presentMessageToUser() {
         view.hideProgress();
-        view.showMessage(ERROR_MESSAGE);
+        view.showMessageToUser(ERROR_MESSAGE);
     }
 
     @Override
     public void presentGitRepositoriesToUser(List<GitRepositoriesModel> gitRepositoriesModelList) {
         view.hideProgress();
-        view.showGitRepositories(gitRepositoriesModelList);
+        view.showGitRepositoriesToUser(gitRepositoriesModelList);
     }
 
     @Override
     public void presentUserInfo(RepositoryOwner repositoryOwner) {
         view.showUserInfo(repositoryOwner);
-        if(repositoryOwner.getName() == null || repositoryOwner.getName().isEmpty()){
-            view.hideOwnerName();
-        }
-    }
-
-    @Override
-    public void clearData() {
-        view.clearData();
     }
 }

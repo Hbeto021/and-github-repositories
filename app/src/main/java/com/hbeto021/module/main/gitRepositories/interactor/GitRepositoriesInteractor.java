@@ -8,14 +8,11 @@ import java.util.List;
 
 public interface GitRepositoriesInteractor {
 
-    void start(String githubUser);
-
-
-    void getGitRepositories(String githubUser);
+    void getGitRepositories(String user);
     void onSuccess(List<GitRepositoriesModel> gitRepositoriesModelList);
     void onFailure();
 
-    void getUserInfo(String githubUser);
+    void getUserInfo(String user);
     void onSuccessUserInfo(RepositoryOwner repositoryOwner);
     void onFailureUserInfo();
 }

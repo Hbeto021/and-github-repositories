@@ -7,11 +7,9 @@ import java.util.List;
 
 public interface GitRepositoriesView {
 
-    void showMessage(String message);
-    void showGitRepositories(List<GitRepositoriesModel> gitRepositories);
+    void showMessageToUser(String message);
+    void showGitRepositoriesToUser(List<GitRepositoriesModel> gitRepositories);
     void showUserInfo(RepositoryOwner repositoryOwner);
     void showProgress();
     void hideProgress();
-    void hideOwnerName();
-    void clearData();
 }
