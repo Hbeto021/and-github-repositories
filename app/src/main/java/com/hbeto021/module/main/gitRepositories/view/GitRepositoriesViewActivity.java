@@ -25,7 +25,6 @@ import com.hbeto021.module.main.domain.RepositoryOwner;
 import com.hbeto021.module.main.gitRepositories.domain.GitRepositoriesModel;
 import com.hbeto021.module.main.gitRepositories.interactor.GitRepositoriesInteractor;
 import com.hbeto021.module.main.gitRepositories.interactor.GitRepositoriesInteractorImpl;
-import com.hbeto021.module.main.gitRepositories.presenter.GitRepositoriesPresenter;
 import com.hbeto021.module.main.gitRepositories.presenter.GitRepositoriesPresenterImpl;
 
 
@@ -184,10 +183,16 @@ public class GitRepositoriesViewActivity extends AppCompatActivity implements Gi
         Glide.with(context).load(repositoryOwner.getOwnerAvatar()).into(imageViewOwnerAvatar);
         textViewOwnerReposNumber.setText(String.valueOf(repositoryOwner.getReposNumber()));
         textViewOwnerUser.setText(repositoryOwner.getLogin());
-        textViewOwnerName.setText(repositoryOwner.getNome());
+        textViewOwnerName.setVisibility(View.VISIBLE);
+        textViewOwnerName.setText(repositoryOwner.getName());
         textViewOwnerFollowers.setText(String.valueOf(repositoryOwner.getFollowers()));
         textViewOwnerFollowing.setText(String.valueOf(repositoryOwner.getFollowing()));
         textViewOwnerBio.setText(repositoryOwner.getBio());
         userInfoLayout.setVisibility(View.VISIBLE);
+    }
+
+    @Override
+    public void hideOwnerName() {
+        textViewOwnerName.setVisibility(View.GONE);
     }
 }

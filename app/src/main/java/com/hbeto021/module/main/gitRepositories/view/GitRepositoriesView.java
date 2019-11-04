@@ -12,4 +12,5 @@ public interface GitRepositoriesView {
     void showUserInfo(RepositoryOwner repositoryOwner);
     void showProgress();
     void hideProgress();
+    void hideOwnerName();
 }

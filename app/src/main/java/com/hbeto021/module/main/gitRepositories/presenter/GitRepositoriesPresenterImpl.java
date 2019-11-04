@@ -36,5 +36,8 @@ public class GitRepositoriesPresenterImpl implements GitRepositoriesPresenter {
     @Override
     public void presentUserInfo(RepositoryOwner repositoryOwner) {
         view.showUserInfo(repositoryOwner);
+        if(repositoryOwner.getName() == null || repositoryOwner.getName().isEmpty()){
+            view.hideOwnerName();
+        }
     }
 }
