@@ -21,14 +21,25 @@ public class GitRepositoriesInteractorImpl implements GitRepositoriesInteractor 
     }
 
     @Override
-    public void getGitRepositories(String url) {
-        gitRepositoriesPresenter.showProgress();
-        gitRepositoriesWorker.getGitRepositories(url, this);
+    public void start(String githubUser) {
+        if(!githubUser.trim().isEmpty()){
+            gitRepositoriesPresenter.showProgress();
+            getGitRepositories(githubUser);
+            getUserInfo(githubUser);
+        } else {
+            gitRepositoriesPresenter.clearData();
+            gitRepositoriesPresenter.presentMessageToUser();
+        }
     }
 
     @Override
-    public void getUserInfo(String url) {
-        gitRepositoriesWorker.getGitUserInfo(url, this);
+    public void getGitRepositories(String user) {
+        gitRepositoriesWorker.getGitRepositories(user, this);
+    }
+
+    @Override
+    public void getUserInfo(String user) {
+        gitRepositoriesWorker.getGitUserInfo(user, this);
     }
 
     @Override
@@ -38,6 +49,7 @@ public class GitRepositoriesInteractorImpl implements GitRepositoriesInteractor 
 
     @Override
     public void onFailure() {
+        gitRepositoriesPresenter.clearData();
         gitRepositoriesPresenter.presentMessageToUser();
     }
 
@@ -48,6 +60,7 @@ public class GitRepositoriesInteractorImpl implements GitRepositoriesInteractor 
 
     @Override
     public void onFailureUserInfo() {
+        gitRepositoriesPresenter.clearData();
         gitRepositoriesPresenter.presentMessageToUser();
     }
 }

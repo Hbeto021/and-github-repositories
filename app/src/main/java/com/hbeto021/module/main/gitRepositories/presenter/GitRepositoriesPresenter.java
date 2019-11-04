@@ -11,5 +11,6 @@ public interface GitRepositoriesPresenter {
     void presentMessageToUser();
     void presentGitRepositoriesToUser(List<GitRepositoriesModel> gitRepositoriesModelList);
     void presentUserInfo(RepositoryOwner repositoryOwner);
+    void clearData();
 
 }

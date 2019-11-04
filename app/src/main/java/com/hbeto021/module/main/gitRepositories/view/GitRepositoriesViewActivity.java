@@ -25,7 +25,6 @@ import com.hbeto021.module.main.domain.RepositoryOwner;
 import com.hbeto021.module.main.gitRepositories.domain.GitRepositoriesModel;
 import com.hbeto021.module.main.gitRepositories.interactor.GitRepositoriesInteractor;
 import com.hbeto021.module.main.gitRepositories.interactor.GitRepositoriesInteractorImpl;
-import com.hbeto021.module.main.gitRepositories.presenter.GitRepositoriesPresenter;
 import com.hbeto021.module.main.gitRepositories.presenter.GitRepositoriesPresenterImpl;
 
 
@@ -61,7 +60,6 @@ public class GitRepositoriesViewActivity extends AppCompatActivity implements Gi
     }
 
     private void initComponents() {
-
         setSupportActionBar((Toolbar) findViewById(R.id.main_toolbar));
 
         ImageView imageViewGitRepositoriesSearch = findViewById(R.id.imageview_git_repositories_search);
@@ -79,11 +77,11 @@ public class GitRepositoriesViewActivity extends AppCompatActivity implements Gi
         userInfoLayout = findViewById(R.id.user_info_layout);
         imageViewOwnerAvatar = findViewById(R.id.imageview_git_repositories_owner_avatar);
         textViewOwnerUser = findViewById(R.id.texviewview_git_repositories_owner_login);
-        textViewOwnerName = findViewById(R.id.texviewview_git_repositories_owner_name);
-        textViewOwnerFollowers = findViewById(R.id.texviewview_git_repositories_owner_followers);
-        textViewOwnerFollowing = findViewById(R.id.texviewview_git_repositories_owner_following);
-        textViewOwnerBio = findViewById(R.id.texviewview_git_repositories_owner_bio);
-        textViewOwnerReposNumber = findViewById(R.id.texviewview_git_repositories_owner_respos_number);
+        textViewOwnerName = findViewById(R.id.textview_git_repositories_owner_name);
+        textViewOwnerFollowers = findViewById(R.id.textview_git_repositories_owner_followers);
+        textViewOwnerFollowing = findViewById(R.id.textview_git_repositories_owner_following);
+        textViewOwnerBio = findViewById(R.id.textview_git_repositories_owner_bio);
+        textViewOwnerReposNumber = findViewById(R.id.textview_git_repositories_owner_respos_number);
 
         initRecyclerView();
 
@@ -96,20 +94,40 @@ public class GitRepositoriesViewActivity extends AppCompatActivity implements Gi
         recyclerViewGitRepositoriesActivity.setAdapter(adapter);
     }
 
-    @Override
-    public void showMessageToUser(String message) {
-        layoutGitRepositoriesSearch.setVisibility(View.VISIBLE);
-        menuItemSearch.setVisible(false);
-        Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
+    private void showSearchDialog(){
+        final AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        View view = View.inflate(context, R.layout.dialog_search_view, null);
+        builder.setView(view);
+
+        final AlertDialog dialog;
+        dialog = builder.create();
+
+        final EditText editTextDialogSearchView = view.findViewById(R.id.dialog_search_view_edittext_github_user);
+
+        TextView tvCancel = view.findViewById(R.id.dialog_search_view_textview_cancel);
+        tvCancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dialog.dismiss();
+            }
+        });
+
+        TextView tvSearch = view.findViewById(R.id.dialog_search_view_texview_search);
+        tvSearch.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                searchListener(editTextDialogSearchView.getText().toString());
+                dialog.dismiss();
+            }
+        });
+
+        dialog.show();
     }
 
-    @Override
-    public void showGitRepositoriesToUser(List<GitRepositoriesModel> gitRepositories) {
-        this.gitRepositories.clear();
-        this.gitRepositories.addAll(gitRepositories);
-        menuItemSearch.setVisible(true);
-        recyclerViewGitRepositoriesActivity.setVisibility(View.VISIBLE);
-        adapter.setGitRepositoriesModelList(this.gitRepositories);
+    private void searchListener(String user) {
+        gitRepositoriesInteractor.start(user);
+        gitRepositories.clear();
+        adapter.clearList();
     }
 
     @Override
@@ -143,39 +161,20 @@ public class GitRepositoriesViewActivity extends AppCompatActivity implements Gi
         progressBar.setVisibility(View.GONE);
     }
 
-    private void showSearchDialog(){
-        final AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        View view = View.inflate(context, R.layout.dialog_search_view, null);
-        builder.setView(view);
+    @Override
+    public void showMessage(String message) {
+        layoutGitRepositoriesSearch.setVisibility(View.VISIBLE);
+        menuItemSearch.setVisible(false);
+        Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
+    }
 
-        final AlertDialog dialog;
-        dialog = builder.create();
-
-        final EditText editTextDialogSearchView = view.findViewById(R.id.dialog_search_view_edittext);
-
-        TextView tvCancel = view.findViewById(R.id.dialog_search_view_textview_cancel);
-        tvCancel.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                dialog.dismiss();
-            }
-        });
-
-        TextView tvSearch = view.findViewById(R.id.dialog_search_view_texview_search);
-        tvSearch.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                gitRepositoriesInteractor.getGitRepositories(editTextDialogSearchView.getText().toString());
-                gitRepositoriesInteractor.getUserInfo(editTextDialogSearchView.getText().toString());
-                gitRepositories.clear();
-                adapter.clearList();
-                dialog.dismiss();
-
-            }
-        });
-
-        dialog.show();
+    @Override
+    public void showGitRepositories(List<GitRepositoriesModel> gitRepositories) {
+        this.gitRepositories.clear();
+        this.gitRepositories.addAll(gitRepositories);
+        menuItemSearch.setVisible(true);
+        recyclerViewGitRepositoriesActivity.setVisibility(View.VISIBLE);
+        adapter.setGitRepositoriesModelList(this.gitRepositories);
     }
 
     @Override
@@ -184,10 +183,29 @@ public class GitRepositoriesViewActivity extends AppCompatActivity implements Gi
         Glide.with(context).load(repositoryOwner.getOwnerAvatar()).into(imageViewOwnerAvatar);
         textViewOwnerReposNumber.setText(String.valueOf(repositoryOwner.getReposNumber()));
         textViewOwnerUser.setText(repositoryOwner.getLogin());
-        textViewOwnerName.setText(repositoryOwner.getNome());
+        textViewOwnerName.setVisibility(View.VISIBLE);
+        textViewOwnerName.setText(repositoryOwner.getName());
         textViewOwnerFollowers.setText(String.valueOf(repositoryOwner.getFollowers()));
         textViewOwnerFollowing.setText(String.valueOf(repositoryOwner.getFollowing()));
         textViewOwnerBio.setText(repositoryOwner.getBio());
         userInfoLayout.setVisibility(View.VISIBLE);
+    }
+
+    @Override
+    public void hideOwnerName() {
+        textViewOwnerName.setVisibility(View.GONE);
+    }
+
+    @Override
+    public void clearData() {
+        userInfoLayout.setVisibility(View.GONE);
+        recyclerViewGitRepositoriesActivity.setVisibility(View.GONE);
+        textViewOwnerReposNumber.setText("");
+        textViewOwnerUser.setText("");
+        textViewOwnerName.setText("");
+        textViewOwnerFollowers.setText("");
+        textViewOwnerFollowing.setText("");
+        textViewOwnerBio.setText("");
+        adapter.clearList();
     }
 }

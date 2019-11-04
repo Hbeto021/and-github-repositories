@@ -15,7 +15,7 @@ public class RepositoryOwner implements Serializable {
     @JsonProperty("avatar_url")
     private String ownerAvatar;
     @JsonProperty("name")
-    private String nome;
+    private String name;
     @JsonProperty("bio")
     private String bio;
     @JsonProperty("public_repos")
@@ -25,12 +25,12 @@ public class RepositoryOwner implements Serializable {
     @JsonProperty("following")
     private int following;
 
-    public String getNome() {
-        return nome;
+    public String getName() {
+        return name;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getPerfilUrl() {
