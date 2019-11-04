@@ -21,10 +21,12 @@
 
         <ImageView
             android:id="@+id/imageview_git_repositories_owner_avatar"
-            android:layout_width="80dp"
-            android:layout_height="65dp"
+            android:layout_width="100dp"
+            android:layout_height="85dp"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:src="@drawable/ic_account" />
@@ -47,11 +49,11 @@
             android:layout_marginTop="10dp"
             android:layout_marginEnd="2dp"
             android:src="@drawable/ic_repository"
-            app:layout_constraintEnd_toStartOf="@+id/textview_git_repositories_owner_respos_number"
+            app:layout_constraintEnd_toStartOf="@+id/texviewview_git_repositories_owner_respos_number"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/textview_git_repositories_owner_name"
+            android:id="@+id/texviewview_git_repositories_owner_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
@@ -62,7 +64,7 @@
             tools:text="Humberto Cesar" />
 
         <TextView
-            android:id="@+id/textview_git_repositories_owner_followers"
+            android:id="@+id/texviewview_git_repositories_owner_followers"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
@@ -70,56 +72,56 @@
             android:textColor="@color/colorPrimary"
             android:textStyle="bold"
             app:layout_constraintStart_toEndOf="@+id/imageview_git_repositories_owner_avatar"
-            app:layout_constraintTop_toBottomOf="@+id/textview_git_repositories_owner_name"
+            app:layout_constraintTop_toBottomOf="@+id/texviewview_git_repositories_owner_name"
             tools:text="500" />
 
         <TextView
-            android:id="@+id/textview_git_repositories_owner_followers_label"
+            android:id="@+id/texviewview_git_repositories_owner_followers_label"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="4dp"
             android:layout_marginTop="4dp"
-            app:layout_constraintBottom_toBottomOf="@+id/textview_git_repositories_owner_followers"
-            app:layout_constraintStart_toEndOf="@+id/textview_git_repositories_owner_followers"
-            app:layout_constraintTop_toBottomOf="@+id/textview_git_repositories_owner_name"
+            app:layout_constraintBottom_toBottomOf="@+id/texviewview_git_repositories_owner_followers"
+            app:layout_constraintStart_toEndOf="@+id/texviewview_git_repositories_owner_followers"
+            app:layout_constraintTop_toBottomOf="@+id/texviewview_git_repositories_owner_name"
             android:text="@string/git_repositories_followers_label" />
 
         <TextView
-            android:id="@+id/textview_git_repositories_owner_following"
+            android:id="@+id/texviewview_git_repositories_owner_following"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             tools:text="350"
             android:textStyle="bold"
             android:textColor="@color/colorPrimary"
-            app:layout_constraintBottom_toBottomOf="@+id/textview_git_repositories_owner_followers_label"
-            app:layout_constraintStart_toEndOf="@+id/textview_git_repositories_owner_followers_label"
-            app:layout_constraintTop_toTopOf="@+id/textview_git_repositories_owner_followers_label" />
+            app:layout_constraintBottom_toBottomOf="@+id/texviewview_git_repositories_owner_followers_label"
+            app:layout_constraintStart_toEndOf="@+id/texviewview_git_repositories_owner_followers_label"
+            app:layout_constraintTop_toTopOf="@+id/texviewview_git_repositories_owner_followers_label" />
 
         <TextView
-            android:id="@+id/textview_git_repositories_owner_following_label"
+            android:id="@+id/texviewview_git_repositories_owner_following_label"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="4dp"
             android:text="@string/git_repositories_following_label"
-            app:layout_constraintBottom_toBottomOf="@+id/textview_git_repositories_owner_following"
-            app:layout_constraintStart_toEndOf="@+id/textview_git_repositories_owner_following"
-            app:layout_constraintTop_toTopOf="@+id/textview_git_repositories_owner_following" />
+            app:layout_constraintBottom_toBottomOf="@+id/texviewview_git_repositories_owner_following"
+            app:layout_constraintStart_toEndOf="@+id/texviewview_git_repositories_owner_following"
+            app:layout_constraintTop_toTopOf="@+id/texviewview_git_repositories_owner_following" />
 
         <TextView
-            android:id="@+id/textview_git_repositories_owner_bio"
+            android:id="@+id/texviewview_git_repositories_owner_bio"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginTop="5dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginBottom="8dp"
+            android:layout_marginEnd="3dp"
+            android:ellipsize="marquee"
+            android:singleLine="true"
             android:textColor="@color/colorPrimary"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/imageview_git_repositories_owner_avatar"
-            app:layout_constraintTop_toBottomOf="@+id/textview_git_repositories_owner_followers"
-            tools:text="Android developer" />
+            app:layout_constraintTop_toBottomOf="@+id/texviewview_git_repositories_owner_followers"
+            tools:text="Um uhfhdfhsdfubbhbbhbjnjnnjnnbbbbhhhuhhjnjnbbjja" />
 
         <View
             android:id="@+id/line_separator"
@@ -129,7 +131,7 @@
             app:layout_constraintBottom_toBottomOf="parent" />
 
         <TextView
-            android:id="@+id/textview_git_repositories_owner_respos_number"
+            android:id="@+id/texviewview_git_repositories_owner_respos_number"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
