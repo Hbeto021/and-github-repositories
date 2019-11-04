@@ -22,7 +22,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <EditText
-            android:id="@+id/dialog_search_view_edittext"
+            android:id="@+id/dialog_search_view_edittext_github_user"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
